@@ -3,16 +3,15 @@ package com.example.abc.models;
 import javax.persistence.*;
 
 @Entity
-public class Customer extends Common{
+public class User extends Common{
 
     private String FirstName;
     private String MiddleName;
     private String LastName;
-    private String Email;
+    private String Email    ;
     private String MobileNumber;
-
-
-
+    @ManyToOne
+    private Branch Branch;
 
     public String getFirstName() {
         return FirstName;
@@ -37,6 +36,7 @@ public class Customer extends Common{
     public void setLastName(String lastName) {
         LastName = lastName;
     }
+
     public String getEmail() {
         return Email;
     }
@@ -53,14 +53,11 @@ public class Customer extends Common{
         MobileNumber = mobileNumber;
     }
 
-    @Override
-    public String toString() {
-        return "Customer{" +
-                ", FirstName='" + FirstName + '\'' +
-                ", MiddleName='" + MiddleName + '\'' +
-                ", LastName='" + LastName + '\'' +
-                ", Email='" + Email + '\'' +
-                ", MobileNumber='" + MobileNumber + '\'' +
-                '}';
+    public com.example.abc.models.Branch getBranch() {
+        return Branch;
+    }
+
+    public void setBranch(com.example.abc.models.Branch branch) {
+        Branch = branch;
     }
 }
