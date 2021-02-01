@@ -7,7 +7,7 @@ public class Customer extends Common{
 
     private String FirstName;
     private String MiddleName;
-    private String LastName;
+    private String LastName; 
     private String Email;
     private String MobileNumber;
 
