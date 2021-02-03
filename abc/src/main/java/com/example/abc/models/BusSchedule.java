@@ -7,22 +7,28 @@ import java.sql.Date;
 @Entity
 public class BusSchedule extends Common{
 
-    private Date TravelDate;
+    private String PlateNumber;
+    private String Type;
     private String DepartureCity;
     private String ArrivalCity;
+    private String Fare;
+    private Date TravelDate;
 
-    @ManyToOne
-    private BusType BusType;
 
-    @ManyToOne
-    private Fare busFare;
-
-    public Date getTravelDate() {
-        return TravelDate;
+    public String getPlateNumber() {
+        return PlateNumber;
     }
 
-    public void setTravelDate(Date travelDate) {
-        TravelDate = travelDate;
+    public void setPlateNumber(String plateNumber) {
+        PlateNumber = plateNumber;
+    }
+
+    public String getType() {
+        return Type;
+    }
+
+    public void setType(String type) {
+        Type = type;
     }
 
     public String getDepartureCity() {
@@ -41,19 +47,19 @@ public class BusSchedule extends Common{
         ArrivalCity = arrivalCity;
     }
 
-    public com.example.abc.models.BusType getBusType() {
-        return BusType;
+    public String getFare() {
+        return Fare;
     }
 
-    public void setBusType(com.example.abc.models.BusType busType) {
-        BusType = busType;
+    public void setFare(String fare) {
+        Fare = fare;
     }
 
-    public Fare getBusFare() {
-        return busFare;
+    public Date getTravelDate() {
+        return TravelDate;
     }
 
-    public void setBusFare(Fare busFare) {
-        this.busFare = busFare;
+    public void setTravelDate(Date travelDate) {
+        TravelDate = travelDate;
     }
 }

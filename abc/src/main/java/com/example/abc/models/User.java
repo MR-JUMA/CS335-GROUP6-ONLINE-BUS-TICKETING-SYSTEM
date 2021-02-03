@@ -1,6 +1,7 @@
 package com.example.abc.models;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class User extends Common{
@@ -12,6 +13,17 @@ public class User extends Common{
     private String MobileNumber;
     @ManyToOne
     private Branch Branch;
+
+    @ManyToMany
+    private Set<Role> role;
+
+    public Set<Role> getRole() {
+        return role;
+    }
+
+    public void setRole(Set<Role> role) {
+        this.role = role;
+    }
 
     public String getFirstName() {
         return FirstName;
