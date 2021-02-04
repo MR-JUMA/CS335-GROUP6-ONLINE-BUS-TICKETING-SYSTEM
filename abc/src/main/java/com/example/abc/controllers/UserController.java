@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.abc.dao.FormValidationGroup;
-import com.example.abc.dao.Reserve;
+import com.example.abc.dao.Reservation;
 import com.example.abc.dao.User;
 import com.exampe.abc.service.ReserveService;
 import com.example.abc.service.UserService;
