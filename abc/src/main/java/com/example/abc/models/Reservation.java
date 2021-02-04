@@ -7,14 +7,13 @@ import java.sql.Date;
 public class Reservation extends Common{
 
     private Date BookingDate;
-    private Date DepartureDate;
-    private String Type;
-    private String TotalFare;
 
     @ManyToOne
     private Customer CustomerID;
+
     @ManyToOne
-    private BusType Bus;
+    private BusSchedule busSchedule;
+
     @ManyToOne
     private User User;
 
@@ -22,32 +21,16 @@ public class Reservation extends Common{
         return BookingDate;
     }
 
+    public BusSchedule getBusSchedule() {
+        return busSchedule;
+    }
+
+    public void setBusSchedule(BusSchedule busSchedule) {
+        this.busSchedule = busSchedule;
+    }
+
     public void setBookingDate(Date bookingDate) {
         BookingDate = bookingDate;
-    }
-
-    public Date getDepartureDate() {
-        return DepartureDate;
-    }
-
-    public void setDepartureDate(Date departureDate) {
-        DepartureDate = departureDate;
-    }
-
-    public String getType() {
-        return Type;
-    }
-
-    public void setType(String type) {
-        Type = type;
-    }
-
-    public String getTotalFare() {
-        return TotalFare;
-    }
-
-    public void setTotalFare(String totalFare) {
-        TotalFare = totalFare;
     }
 
     public Customer getCustomerID() {
@@ -58,13 +41,6 @@ public class Reservation extends Common{
         CustomerID = customerID;
     }
 
-    public BusType getBus() {
-        return Bus;
-    }
-
-    public void setBus(BusType bus) {
-        Bus = bus;
-    }
 
     public com.example.abc.models.User getUser() {
         return User;
