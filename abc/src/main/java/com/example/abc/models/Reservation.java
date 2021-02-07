@@ -3,6 +3,8 @@ package com.example.abc.models;
 import javax.persistence.*;
 import java.sql.Date;
 
+
+
 @Entity
 public class Reservation extends Common{
 
@@ -16,6 +18,7 @@ public class Reservation extends Common{
 
     @ManyToOne
     private User User;
+
 
     public Date getBookingDate() {
         return BookingDate;
@@ -48,5 +51,15 @@ public class Reservation extends Common{
 
     public void setUser(com.example.abc.models.User user) {
         User = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "BookingDate=" + BookingDate +
+                ", CustomerID=" + CustomerID +
+                ", busSchedule=" + busSchedule +
+                ", User=" + User +
+                '}';
     }
 }

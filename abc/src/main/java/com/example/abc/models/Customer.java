@@ -12,8 +12,6 @@ public class Customer extends Common{
     private String MobileNumber;
 
 
-
-
     public String getFirstName() {
         return FirstName;
     }

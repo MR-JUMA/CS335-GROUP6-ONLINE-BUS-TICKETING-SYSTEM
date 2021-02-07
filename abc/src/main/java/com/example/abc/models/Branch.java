@@ -10,6 +10,7 @@ public class Branch extends Common{
     @ManyToOne
     private City City;
 
+
     public String getCenterName() {
         return CenterName;
     }
@@ -32,5 +33,14 @@ public class Branch extends Common{
 
     public void setCity(com.example.abc.models.City city) {
         City = city;
+    }
+
+    @Override
+    public String toString() {
+        return "Branch{" +
+                "CenterName='" + CenterName + '\'' +
+                ", Street='" + Street + '\'' +
+                ", City=" + City +
+                '}';
     }
 }

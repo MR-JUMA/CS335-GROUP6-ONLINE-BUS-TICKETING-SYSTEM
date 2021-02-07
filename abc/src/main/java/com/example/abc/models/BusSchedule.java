@@ -4,31 +4,25 @@ package com.example.abc.models;
 import javax.persistence.*;
 import java.sql.Date;
 
+
 @Entity
 public class BusSchedule extends Common{
 
-    private String PlateNumber;
-    private String Type;
     private String DepartureCity;
     private String ArrivalCity;
     private String Fare;
     private Date TravelDate;
 
+    @OneToOne
+    private Bus bus;
 
-    public String getPlateNumber() {
-        return PlateNumber;
+
+    public Bus getBus() {
+        return bus;
     }
 
-    public void setPlateNumber(String plateNumber) {
-        PlateNumber = plateNumber;
-    }
-
-    public String getType() {
-        return Type;
-    }
-
-    public void setType(String type) {
-        Type = type;
+    public void setBus(Bus bus) {
+        this.bus = bus;
     }
 
     public String getDepartureCity() {
@@ -61,5 +55,15 @@ public class BusSchedule extends Common{
 
     public void setTravelDate(Date travelDate) {
         TravelDate = travelDate;
+    }
+
+    @Override
+    public String toString() {
+        return "BusSchedule{" +
+                "DepartureCity='" + DepartureCity + '\'' +
+                ", ArrivalCity='" + ArrivalCity + '\'' +
+                ", Fare='" + Fare + '\'' +
+                ", TravelDate=" + TravelDate +
+                '}';
     }
 }

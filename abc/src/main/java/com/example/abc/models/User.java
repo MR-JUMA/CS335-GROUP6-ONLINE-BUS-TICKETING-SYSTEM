@@ -17,6 +17,7 @@ public class User extends Common{
     @ManyToMany
     private Set<Role> role;
 
+
     public Set<Role> getRole() {
         return role;
     }
@@ -71,5 +72,18 @@ public class User extends Common{
 
     public void setBranch(com.example.abc.models.Branch branch) {
         Branch = branch;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "FirstName='" + FirstName + '\'' +
+                ", MiddleName='" + MiddleName + '\'' +
+                ", LastName='" + LastName + '\'' +
+                ", Email='" + Email + '\'' +
+                ", MobileNumber='" + MobileNumber + '\'' +
+                ", Branch=" + Branch +
+                ", role=" + role +
+                '}';
     }
 }
