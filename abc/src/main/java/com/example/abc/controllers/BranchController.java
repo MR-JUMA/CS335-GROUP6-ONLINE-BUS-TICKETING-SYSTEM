@@ -21,17 +21,7 @@ public class BranchController {
     @Autowired
     CityRepository cityRepository;
 
-    @RequestMapping(value = "/branchHome",method = RequestMethod.GET)
-    public String homeBranch(ModelMap modelMap){
-        List<City> cities=cityRepository.findAll();
-        modelMap.addAttribute("cities",cities);
-        return "AddBranch";
-    }
 
-    @RequestMapping(value = "/AddBranch",method= RequestMethod.POST)
-    public String addCity(Branch branch){
-        branchRepository.save(branch);
-        return null;
 
-    }
+
 }

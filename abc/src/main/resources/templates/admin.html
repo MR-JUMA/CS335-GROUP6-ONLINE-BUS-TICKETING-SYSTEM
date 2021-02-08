@@ -45,7 +45,7 @@
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Startmin</a>
+                <a class="navbar-brand" href="#">Reservation</a>
             </div>
 
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -87,19 +87,19 @@
                         </li>
 
                         <li>
-                            <a th:href="@{/forms}"><i class="fa fa-user-o fa-fw"></i> Add User</a>
+                            <a th:href="@{/addingUser}"><i class="fa fa-user-o fa-fw"></i> Add User</a>
                         </li>
                         <li>
-                            <a th:href="@{/showAddFlight}"><i class="fa fa-plane fa-fw"></i> Add Flight</a>
+                            <a th:href="@{/addingBus}"><i class="fa fa-car fa-fw"></i> Add Bus</a>
                         </li>
                         <li>
-                            <a th:href="@{/viewFlight}"><i class="fa fa-street-view fa-fw"></i> View Flights</a>
+                            <a th:href="@{/addingCity}"><i class="fa fa-street-view fa-fw"></i>Add City</a>
                         </li>
                         <li>
-                            <a th:href="@{/viewUser}"><i class="fa fa-users fa-fw"></i> View Users</a>
+                            <a th:href="@{/addingBranch}"><i class="fa fa-location-arrow fa-fw"></i> Add Branch</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-table fa-fw"></i> Tables</a>
+                            <a th:href="@{/tripAdding}"><i class="fa fa-location-arrow fa-fw"></i> Create Trip</a>
                         </li>
                         <li>
                             <a th:href="@{/logout}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -127,7 +127,7 @@
                                         <i class="fa fa-users fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge" th:text="${count}"></div>
+                                        <div class="huge" ></div>
                                         <div>Users</div>
                                     </div>
                                 </div>
@@ -150,7 +150,7 @@
                                         <i class="fa fa-plane fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge" th:text="${flights}"></div>
+                                        <div class="huge" ></div>
                                         <div>Flights Available</div>
                                     </div>
                                 </div>
@@ -173,7 +173,7 @@
                                         <i class="fa fa-archive fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge" th:text="${reserves}"></div>
+                                        <div class="huge" ></div>
                                         <div>Reservations</div>
                                     </div>
                                 </div>
@@ -218,7 +218,7 @@
                         <!-- /.panel -->
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <i class="fa fa-plane fa-fw"></i> Recent Flights
+                                <i class="fa fa-plane fa-fw"></i> Recent Safaris
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">
@@ -230,21 +230,21 @@
                                                 <thead>
                                                 <tr>
 
-                                                    <th>Flight Name</th>
+                                                    <th>Bus Name</th>
                                                     <th>From</th>
                                                     <th>To</th>
                                                     <th>Departure Date</th>
-                                                    <th>Departure Time</th>
+                                                    <th>Bus Fare</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
 
-                                                <tr th:each="flight:${fx}">
-                                                    <td th:text="${flight.flightNumber}"></td>
-                                                    <td th:text="${flight.departureCity}"></td>
-                                                    <td th:text="${flight.arrivalCity}"></td>
-                                                    <td th:text="${flight.dateOfDeparture}"></td>
-                                                    <td th:text="${flight.estimatedDepartureTime}"></td>
+                                                <tr th:each="schedule:${schedules}">
+                                                    <td th:text="${schedule.getBus().getName()}"></td>
+                                                    <td th:text="${schedule.getDepartureCity()}"></td>
+                                                    <td th:text="${schedule.getArrivalCity()}"></td>
+                                                    <td th:text="${schedule.getTravelDate()}"></td>
+                                                    <td th:text="${schedule.getFare()}"></td>
                                                 </tr>
 
                                                 </tbody>

@@ -26,11 +26,11 @@ public class CustomerController {
         return "RegisterCustomer";
     }
 
-    @RequestMapping("/RegisterCustomer")
-    public String saveCustomer(Customer customer){
-         customerRepository.save(customer);
-         return "viewCustomer";
-    }
+//    @RequestMapping("/RegisterCustomer")
+//    public String saveCustomer(Customer customer){
+//         customerRepository.save(customer);
+//         return "viewCustomer";
+//    }
 
     @RequestMapping("/viewCustomer")
     public String viewCustomer(ModelMap modelMap){

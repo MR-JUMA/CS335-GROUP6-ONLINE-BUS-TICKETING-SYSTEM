@@ -13,15 +13,8 @@ public class CityController {
     CityRepository cityRepository;
 
 
-    @RequestMapping("/cityHome")
-    public String CityHome(){
-        return "AddCity";
-    }
 
-    @RequestMapping(value = "/AddCity",method= RequestMethod.POST)
-    public String addCity(City city){
-        cityRepository.save(city);
-        return null;
 
-    }
+
+
 }

@@ -78,19 +78,19 @@
                     <a th:href="@{/ab}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                 </li>
                 <li>
-                    <a th:href="@{/forms}"><i class="fa fa-user-o fa-fw"></i> Add User</a>
+                    <a th:href="@{/addingUser}"><i class="fa fa-user-o fa-fw"></i> Add User</a>
                 </li>
                 <li>
-                    <a th:href="@{/showAddFlight}"><i class="fa fa-plane fa-fw"></i>Add Flight</a>
+                    <a th:href="@{/addingBus}"><i class="fa fa-car fa-fw"></i>Add Bus</a>
                 </li>
                 <li>
-                    <a th:href="@{/viewFlight}"><i class="fa fa-street-view fa-fw"></i> View Flights</a>
+                    <a th:href="@{/addingCity}"><i class="fa fa-street-view fa-fw"></i>Add City</a>
                 </li>
                 <li>
-                    <a th:href="@{/viewUser}"><i class="fa fa-users fa-fw"></i> View Users</a>
+                    <a th:href="@{/addingBranch}"><i class="fa fa-location-arrow fa-fw"></i> Add Branch</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-table fa-fw"></i> Tables</a>
+                    <a th:href="@{/tripAdding}"><i class="fa fa-location-arrow fa-fw"></i> Create Trip</a>
                 </li>
                 <li>
                     <a th:href="@{/logout}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -114,86 +114,31 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-6">
-                        <form role="form" th:action="@{/addFlight}" method="post" th:object="${flight}">
-                            <div class="form-group">
-                                <label>Flight Name</label>
-                                <select class="form-control"  id="exampleFormControlSelect3" type="text" name="flightNumber" required>
-                                    <option value="" disabled selected hidden>select plane</option>
-                                    <option>BOYEING766</option>
-                                    <option>ABC123</option>
-                                    <option>KILI33</option>
-                                    <option>KAZI AIR</option>
-                                </select>
-                            </div>
+                        <form role="form" th:action="@{/addBus}" method="post">
 
                             <div class="form-group">
-                                <label>Number of Seats</label>
-                                <input class="form-control" type="int" name="seat" required>
+                                <label>Bus Name</label>
+                                <input class="form-control" type="text" name="Name" required>
                             </div>
 
+                            <br>
+
+                            <div class="form-group">
+                                <label>Plate Number</label>
+                                <input class="form-control" type="text" name="PlateNumber" required>
+                            </div>
+
+                            <br>
 
                             <div>
                                 <label>Type:</label>
                                 <select class="custom-select" name="Type" required>
-                                   <option value="" disabled selected hidden>Select Route Type</option>
-                                   <option value="one way">one way</option>
-                                   <option value="round trip">round trip</option>
-                               </select>
-                            </div>
-                            <br>
-
-                            <div>
-                                <label>Class:</label>
-                                    <select class="custom-select" name="PlaneClass" required>
-                                        <option value="" disabled selected hidden>Select Class</option>
-                                        <option value="Economy">Economy</option>
-                                        <option value="Business">Business</option>
-                                    </select>
-                            </div>
-                            <br>
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect1">Departure City</label>
-                                <select class="form-control"  id="exampleFormControlSelect1" type="text" name="departureCity" required>
-                                    <option value="" disabled selected hidden>select city</option>
-                                    <option>Dar es Salaam</option>
-                                    <option>Mwanza</option>
-                                    <option>Arusha</option>
-                                    <option>Kilimanjaro</option>
-                                    <option>Tanga</option>
-                                    <option>Dodoma</option>
+                                    <option value="" disabled selected hidden>Select Bus Type</option>
+                                    <option value="Luxury">Luxury</option>
+                                    <option value="Semi-Luxury">Semi-Luxury</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect2">Arrival City</label>
-                                <select class="form-control" id="exampleFormControlSelect2" type="text" name="arrivalCity" required>
-                                    <option value="" disabled selected hidden>select city</option>                                    <option>Dar es Salaam</option>
-                                    <option>Mwanza</option>
-                                    <option>Arusha</option>
-                                    <option>Kilimanjaro</option>
-                                    <option>Tanga</option>
-                                    <option>Dodoma</option>
-                                </select>
-                            </div>
-
-
-                            <div class="form-group">
-                                <label>Price</label>
-                                <input class="form-control" type="text" name="price" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Departure Date</label>
-                                <input class="form-control" type="date" name="dateOfDeparture" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Departure Time</label>
-                                <input class="form-control" type="text" name="estimatedDepartureTime" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Return Date</label>
-                                <input class="form-control" type="date" name="dateOfReturn">
-                            </div>
-
-
+                            <br>
                             <button type="submit" class="btn btn-default">Submit</button>
                             <button type="reset" class="btn btn-default">Reset </button>
                         </form>

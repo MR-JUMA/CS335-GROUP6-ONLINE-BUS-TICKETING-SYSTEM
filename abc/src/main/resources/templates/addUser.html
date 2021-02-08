@@ -87,7 +87,7 @@
                     <a th:href="@{/addingCity}"><i class="fa fa-street-view fa-fw"></i> Add City</a>
                 </li>
                 <li>
-                    <a th:href="@{/addingBranch}"><i class="fa fa-leaf fa-fw"></i> Add Branch</a>
+                    <a th:href="@{/addingBranch}"><i class="fa fa-location-arrow fa-fw"></i> Add Branch</a>
                 </li>
                 <li>
                     <a th:href="@{/tripAdding}"><i class="fa fa-location-arrow fa-fw"></i> Create Trip</a>
@@ -114,51 +114,54 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            <form role="form" th:action="@{/addTrip}" method="post">
+                            <form role="form" th:action="@{/addUser}" method="post">
 
-                                <div>
-                                    <label>Bus</label>
-                                    <select class="custom-select" name="bus">
-                                        <option value="" selected>SELECT BUS</option>
-                                        <option th:each="bus:${buses}" th:value="${bus.getID()}" th:text="${bus.getName()}"></option>
-                                    </select>
-                                </div>
-
-                                <br>
-
-                                <div>
-                                    <label>Departure City</label>
-                                    <select class="custom-select" name="DepartureCity" required>
-                                        <option value="" selected>SELECT CITY</option>
-                                        <option th:each="city:${cities}" th:value="${city.cityName}" th:text="${city.getCityName()}"></option>
-                                    </select>
-                                </div>
-
-                                <br>
-
-
-                                <div>
-                                    <label>Arrival City</label>
-                                    <select class="custom-select" name="ArrivalCity" required>
-                                        <option value="" selected>SELECT CITY</option>
-                                        <option th:each="city:${cities}" th:value="${city.cityName}" th:text="${city.getCityName()}"></option>
-                                    </select>
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <input class="form-control" type="text" name="FirstName" required>
                                 </div>
 
                                 <br>
                                 <div class="form-group">
-                                    <label>Fare</label>
-                                    <input class="form-control" type="text" name="Fare" required>
+                                    <label>Middle Name</label>
+                                    <input class="form-control" type="text" name="MiddleName" >
                                 </div>
                                 <br>
-
-
                                 <div class="form-group">
-                                    <label>Departure Date</label>
-                                    <input class="form-control" type="date" name="TravelDate" required>
+                                    <label>Last Name</label>
+                                    <input class="form-control" type="text" name="LastName" required>
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input class="form-control" type="email" name="Email" required>
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <label>Mobile Number</label>
+                                    <input class="form-control" type="text" name="MobileNumber" required>
                                 </div>
 
                                 <br>
+                                <div>
+                                    <label>Branch</label>
+                                    <select class="custom-select" name="Branch">
+                                        <option value="" selected>Select Branch</option>
+                                        <option th:each="branch:${branches}" th:value="${branch.getID()}" th:text="${branch.getCenterName()}"></option>
+                                    </select>
+                                </div>
+                                <br>
+                                <div>
+                                    <label>Assign Role</label>
+                                    <select class="custom-select" name="Branch">
+                                        <option value="" selected>Select role</option>
+                                        <option th:each="role:${roles}" th:value="${role.getID()}" th:text="${role.getName()}"></option>
+                                    </select>
+                                </div>
+                                <br>
+
+
+
                                 <button type="submit" class="btn btn-default">Submit</button>
                                 <button type="reset" class="btn btn-default">Reset </button>
                             </form>
