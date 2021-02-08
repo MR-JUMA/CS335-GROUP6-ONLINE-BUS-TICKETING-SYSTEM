@@ -6,46 +6,47 @@
 </head>
 <body>
 
-<form role="form" th:action="@{/addTrip}" method="post">
+<form role="form" th:action="@{/addTrip}"  method="post">
 
-    <div class="form-group">
-        <label>Plate Number</label>
-        <input class="form-control" type="text" name="PlateNumber" required>
-    </div>
+
     <div>
-        <label>Type:</label>
-        <select class="custom-select" name="Type" required>
-            <option value="" disabled selected hidden>Select Bus Type</option>
-            <option value="Luxury">Luxury</option>
-            <option value="Semi-Luxury">Semi-Luxury</option>
+        <label>Bus</label>
+        <select class="custom-select" name="bus">
+            <option value="" selected>SELECT BUS</option>
+            <option th:each="bus:${buses}" th:value="${bus.getID()}" th:text="${bus.getName()}"></option>
         </select>
     </div>
-    <br>
 
-    <div class="form-group">
-        <label for="exampleFormControlSelect1">Departure City</label>
-        <select class="form-control"  id="exampleFormControlSelect1" type="text" name="DepartureCity" required>
-            <option value="" disabled selected hidden>select city</option>
-            <option>Dar es Salaam</option>
-            <option>Mwanza</option>
-            <option>Arusha</option>
-            <option>Kilimanjaro</option>
-            <option>Tanga</option>
-            <option>Dodoma</option>
+
+    <div>
+        <label>Departure City</label>
+        <select class="custom-select" name="DepartureCity" required>
+            <option value="" selected>SELECT CITY</option>
+            <option th:each="city:${cities}" th:value="${city.cityName}" th:text="${city.getCityName()}"></option>
         </select>
     </div>
-    <div class="form-group">
-        <label for="exampleFormControlSelect2">Arrival City</label>
-        <select class="form-control" id="exampleFormControlSelect2" type="text" name="ArrivalCity" required>
-            <option value="" disabled selected hidden>select city</option>
-            <option>Dar es Salaam</option>
-            <option>Mwanza</option>
-            <option>Arusha</option>
-            <option>Kilimanjaro</option>
-            <option>Tanga</option>
-            <option>Dodoma</option>
+
+
+    <div>
+        <label>Arrival City</label>
+        <select class="custom-select" name="ArrivalCity" required>
+            <option value="" selected>SELECT CITY</option>
+            <option th:each="city:${cities}" th:value="${city.cityName}" th:text="${city.getCityName()}"></option>
         </select>
     </div>
+
+<!--    <div class="form-group">-->
+<!--        <label for="exampleFormControlSelect2">Arrival City</label>-->
+<!--        <select class="form-control" id="exampleFormControlSelect2" type="text" name="ArrivalCity" required>-->
+<!--            <option value="" disabled selected hidden>select city</option>-->
+<!--            <option>Dar es Salaam</option>-->
+<!--            <option>Mwanza</option>-->
+<!--            <option>Arusha</option>-->
+<!--            <option>Kilimanjaro</option>-->
+<!--            <option>Tanga</option>-->
+<!--            <option>Dodoma</option>-->
+<!--        </select>-->
+<!--    </div>-->
     <div class="form-group">
         <label>Fare</label>
         <input class="form-control" type="text" name="Fare" required>

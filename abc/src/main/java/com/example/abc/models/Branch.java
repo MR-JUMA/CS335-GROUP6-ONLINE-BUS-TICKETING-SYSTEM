@@ -5,10 +5,10 @@ import javax.persistence.*;
 @Entity
 public class Branch extends Common{
     private String CenterName;
-    private String Street;
 
     @ManyToOne
     private City City;
+
 
     public String getCenterName() {
         return CenterName;
@@ -18,13 +18,7 @@ public class Branch extends Common{
         CenterName = centerName;
     }
 
-    public String getStreet() {
-        return Street;
-    }
 
-    public void setStreet(String street) {
-        Street = street;
-    }
 
     public com.example.abc.models.City getCity() {
         return City;
@@ -32,5 +26,13 @@ public class Branch extends Common{
 
     public void setCity(com.example.abc.models.City city) {
         City = city;
+    }
+
+    @Override
+    public String toString() {
+        return "Branch{" +
+                "CenterName='" + CenterName + '\'' +
+                ", City=" + City +
+                '}';
     }
 }

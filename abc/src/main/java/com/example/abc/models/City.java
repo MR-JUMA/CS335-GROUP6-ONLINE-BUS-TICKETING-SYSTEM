@@ -10,11 +10,19 @@ public class City extends Common {
 
     private String CityName;
 
+
     public String getCityName() {
         return CityName;
     }
 
     public void setCityName(String cityName) {
         CityName = cityName;
+    }
+
+    @Override
+    public String toString() {
+        return "City{" +
+                "CityName='" + CityName + '\'' +
+                '}';
     }
 }

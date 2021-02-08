@@ -11,11 +11,19 @@ public class Common {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID;
 
+
     public Long getID() {
         return ID;
     }
 
     public void setID(Long ID) {
         this.ID = ID;
+    }
+
+    @Override
+    public String toString() {
+        return "Common{" +
+                "ID=" + ID +
+                '}';
     }
 }
