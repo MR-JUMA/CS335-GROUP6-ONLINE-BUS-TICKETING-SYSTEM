@@ -2,7 +2,9 @@ package com.example.abc.controllers;
 
 import com.example.abc.models.Bus;
 import com.example.abc.models.BusSchedule;
+import com.example.abc.models.City;
 import com.example.abc.repositories.BusRepository;
+import com.example.abc.repositories.CityRepository;
 import com.example.abc.repositories.ScheduleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -22,6 +24,9 @@ public class TripController {
 
     @Autowired
     ScheduleRepository scheduleRepository;
+
+    @Autowired
+    CityRepository cityRepository;
 
 //    @RequestMapping("/searchTrip")
 //    public String searchTrip(String departureCity, String arrivalCity, Date departureDate, ModelMap modelMap){
@@ -43,13 +48,15 @@ public class TripController {
     @RequestMapping(value = "/tripAdding",method = RequestMethod.GET)
     public String tripAdd(ModelMap modelMap){
         List<Bus> buses=busRepository.findAll();
+        List<City> cities=cityRepository.findAll();
         modelMap.addAttribute("buses",buses);
+        modelMap.addAttribute("cities",cities);
         return "addTrip";
     }
 
 
 
-    @RequestMapping(value = "/addTrip",method=RequestMethod.POST)
+    @RequestMapping(value ="/addTrip",method=RequestMethod.POST)
     public String addTrip(BusSchedule busSchedule){
         scheduleRepository.save(busSchedule);
         return null;
