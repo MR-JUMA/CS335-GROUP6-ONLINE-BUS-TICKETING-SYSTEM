@@ -1,68 +1,88 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html lang="en" xmlns = "http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout::header">
 </head>
 <body>
+<div th:replace="layout::sidebar"></div>
 
-<form role="form" th:action="@{/addTrip}"  method="post">
+
+<div class="jumbotron">
+
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="panel panel-default ">
+                <div class="panel-heading">
+                    Basic Form Elements
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <form role="form" th:action="@{/addTrip}" method="post">
+
+                                <div>
+                                    <label>Bus</label>
+                                    <select class="custom-select" name="bus">
+                                        <option value="" selected>SELECT BUS</option>
+                                        <option th:each="bus:${buses}" th:value="${bus.getID()}" th:text="${bus.getName()}"></option>
+                                    </select>
+                                </div>
+
+                                <br>
+
+                                <div>
+                                    <label>Departure City</label>
+                                    <select class="custom-select" name="DepartureCity" required>
+                                        <option value="" selected>SELECT CITY</option>
+                                        <option th:each="city:${cities}" th:value="${city.cityName}" th:text="${city.getCityName()}"></option>
+                                    </select>
+                                </div>
+
+                                <br>
 
 
-    <div>
-        <label>Bus</label>
-        <select class="custom-select" name="bus">
-            <option value="" selected>SELECT BUS</option>
-            <option th:each="bus:${buses}" th:value="${bus.getID()}" th:text="${bus.getName()}"></option>
-        </select>
+                                <div>
+                                    <label>Arrival City</label>
+                                    <select class="custom-select" name="ArrivalCity" required>
+                                        <option value="" selected>SELECT CITY</option>
+                                        <option th:each="city:${cities}" th:value="${city.cityName}" th:text="${city.getCityName()}"></option>
+                                    </select>
+                                </div>
+
+                                <br>
+                                <div class="form-group">
+                                    <label>Fare</label>
+                                    <input class="form-control" type="text" name="Fare" required>
+                                </div>
+                                <br>
+
+
+                                <div class="form-group">
+                                    <label>Departure Date</label>
+                                    <input class="form-control" type="date" name="TravelDate" required>
+                                </div>
+
+                                <br>
+                                <button type="submit" class="btn btn-default">Submit</button>
+                                <button type="reset" class="btn btn-default">Reset </button>
+                            </form>
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                        <div class="col-lg-6">
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
     </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.col-lg-6 (nested) -->
 
-
-    <div>
-        <label>Departure City</label>
-        <select class="custom-select" name="DepartureCity" required>
-            <option value="" selected>SELECT CITY</option>
-            <option th:each="city:${cities}" th:value="${city.cityName}" th:text="${city.getCityName()}"></option>
-        </select>
-    </div>
-
-
-    <div>
-        <label>Arrival City</label>
-        <select class="custom-select" name="ArrivalCity" required>
-            <option value="" selected>SELECT CITY</option>
-            <option th:each="city:${cities}" th:value="${city.cityName}" th:text="${city.getCityName()}"></option>
-        </select>
-    </div>
-
-<!--    <div class="form-group">-->
-<!--        <label for="exampleFormControlSelect2">Arrival City</label>-->
-<!--        <select class="form-control" id="exampleFormControlSelect2" type="text" name="ArrivalCity" required>-->
-<!--            <option value="" disabled selected hidden>select city</option>-->
-<!--            <option>Dar es Salaam</option>-->
-<!--            <option>Mwanza</option>-->
-<!--            <option>Arusha</option>-->
-<!--            <option>Kilimanjaro</option>-->
-<!--            <option>Tanga</option>-->
-<!--            <option>Dodoma</option>-->
-<!--        </select>-->
-<!--    </div>-->
-    <div class="form-group">
-        <label>Fare</label>
-        <input class="form-control" type="text" name="Fare" required>
-    </div>
-
-
-    <div class="form-group">
-        <label>Departure Date</label>
-        <input class="form-control" type="date" name="TravelDate" required>
-    </div>
-
-
-    <button type="submit" class="btn btn-default">Submit</button>
-    <button type="reset" class="btn btn-default">Reset </button>
-</form>
-
+<div th:replace="layout::js"></div>
 
 </body>
 </html>

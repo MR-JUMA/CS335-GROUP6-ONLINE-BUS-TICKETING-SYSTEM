@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout::header">
+</head>
+<body>
+<div th:replace="layout::sidebar"></div>
+<div class="jumbotron">
+
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="panel panel-default ">
+                <div class="panel-heading">
+                    Basic Form Elements
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <form role="form" action="#" th:action="@{/updateBus/{id}(id=${bus.ID})}" method="post" >
+                                <div class="form-group">
+                                    <label>Bus Name</label>
+                                    <input class="form-control" type="text" th:value="${bus.getName()}" name="Name" required>
+                                </div>
+
+                                <br>
+
+                                <div class="form-group">
+                                    <label>Plate Number</label>
+                                    <input class="form-control" type="text" th:value="${bus.getPlateNumber()}" name="PlateNumber" required>
+                                </div>
+
+                                <br>
+
+                                <div>
+                                    <label>Type:</label>
+                                    <select class="custom-select" th:value="${bus.getType()}" name="Type" required>
+                                        <option value="" disabled selected hidden>Select Bus Type</option>
+                                        <option value="Luxury">Luxury</option>
+                                        <option value="Semi-Luxury">Semi-Luxury</option>
+                                    </select>
+                                </div>
+                                <br>
+
+
+
+
+                                <button type="submit" class="btn btn-success">Submit</button>
+                                <button type="reset" class="btn btn-default">Reset </button>
+                                <a class="btn btn-danger" th:href="@{/viewBus}" role="button">Cancel</a>
+
+                            </form>
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                        <div class="col-lg-6">
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.col-lg-6 (nested) -->
+
+<div th:replace="layout::js"></div>
+</body>
+</html>

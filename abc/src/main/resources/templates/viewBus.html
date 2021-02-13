@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head th:replace="layout::header"></head>
+<body>
+<div th:replace="layout::sidebar"></div>
+    <div class="jumbotron">
+
+      <div id="page-wrapper">
+         <div class="container-fluid">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-plane fa-fw"></i> Recent Bus
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Bus Name</th>
+                                        <th>Plate Number</th>
+                                        <th>Class</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="bus:${buses}">
+                                        <td th:text="${bus.getName()}"></td>
+                                        <td th:text="${bus.getPlateNumber()}"></td>
+                                        <td th:text="${bus.getType()}"></td>
+
+
+                                        <td><a th:href="@{/editBus/{id}(id=${bus.ID})}"><i class="fa fa-edit"></i></a></td>
+                                       <td> <a th:href="@{/deleteBus/{id}(id=${bus.ID})}"><i class="fa fa-trash"></i></i></a></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+      </div>
+    </div>
+
+</div>
+<!-- /#wrapper -->
+<div th:replace="layout::js"></div>
+</body>
+</html>
