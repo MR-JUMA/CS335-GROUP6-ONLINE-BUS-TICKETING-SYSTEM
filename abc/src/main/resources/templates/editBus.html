@@ -1,108 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Startmin - Bootstrap Admin Theme</title>
-
-    <!-- Bootstrap Core CSS -->
-    <!--        <link href="../static/css/bootstrap.min.css" rel="stylesheet">-->
-    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
-
-    <!-- MetisMenu CSS -->
-    <!--        <link href="../static/css/metisMenu.min.css" rel="stylesheet">-->
-    <link th:href="@{/css/metisMenu.min.css}" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <!--        <link href="../static/css/startmin.css" rel="stylesheet">-->
-    <link th:href="@{/css/startmin.css}" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <!--        <link href="../static/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
-    <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<head th:replace="layout::header">
 </head>
 <body>
-
-< id="wrapper">
-
-<!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="navbar-header">
-        <a class="navbar-brand" href="admin.html">Startmin</a>
-    </div>
-
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-    </button>
-
-    <ul class="nav navbar-nav navbar-left navbar-top-links">
-        <li><a href="#"><i class="fa fa-home fa-fw"></i> Welcome</a></li>
-    </ul>
-
-    <ul class="nav navbar-right navbar-top-links">
-        <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="fa fa-user fa-fw"></i>Admin <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu dropdown-user">
-                <li><a href="#"><i class="fa fa-user fa-fw"></i>Profile</a>
-                </li>
-                <li><a href="#"><i class="fa fa-gear fa-fw"></i>Settings</a>
-                </li>
-                <li class="divider"></li>
-                <li><a th:href="@{/logout}"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
-                </li>
-            </ul>
-        </li>
-    </ul>
-    <!-- /.navbar-top-links -->
-
-    <div class="navbar-default sidebar" role="navigation">
-        <div class="sidebar-nav navbar-collapse">
-            <ul class="nav" id="side-menu">
-                <li>
-                    <a th:href="@{/ab}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                </li>
-                <li>
-                    <a th:href="@{/forms}"><i class="fa fa-user-o fa-fw"></i> Add User</a>
-                </li>
-                <li>
-                    <a th:href="@{/showAddFlight}"><i class="fa fa-plane fa-fw"></i>Add Bus</a>
-                </li>
-                <li>
-                    <a th:href="@{/viewFlight}"><i class="fa fa-street-view fa-fw"></i> View Bus</a>
-                </li>
-                <li>
-                    <a th:href="@{/viewUser}"><i class="fa fa-users fa-fw"></i> View Users</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-table fa-fw"></i> Tables</a>
-                </li>
-                <li>
-                    <a th:href="@{/logout}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /.sidebar-collapse -->
-    </div>
-    <!-- /.navbar-static-side -->
-</nav>
-
-
+<div th:replace="layout::sidebar"></div>
 <div class="jumbotron">
 
     <div id="page-wrapper">
@@ -114,85 +15,37 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            <form role="form" action="#" th:action="@{/update/{id}(id=${flight.id})}"
-                                  th:object="${flight}" method="post" >
-
+                            <form role="form" action="#" th:action="@{/updateBus/{id}(id=${bus.ID})}" method="post" >
                                 <div class="form-group">
                                     <label>Bus Name</label>
-                                    <select class="form-control"  id="exampleFormControlSelect3" type="text" name="flightNumber"  required>
-                                        <option th:text="${flight.getFlightNumber()}" disabled selected hidden>select plane</option>
-                                        <option >766</option>
-                                        <option >ABC123</option>
-                                        <option >KILI33</option>
-                                        <option >KAZI AIR</option>
-                                    </select>
+                                    <input class="form-control" type="text" th:value="${bus.getName()}" name="Name" required>
                                 </div>
+
                                 <br>
+
                                 <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Departure City</label>
-                                    <select class="form-control"  id="exampleFormControlSelect1" type="text" name="departureCity"  required>
-                                        <option th:text="${flight.getDepartureCity()}" disabled selected hidden>select city</option>
-                                        <option >Dar es Salaam</option>
-                                        <option>Mwanza</option>
-                                        <option>Arusha</option>
-                                        <option>Kilimanjaro</option>
-                                        <option>Tanga</option>
-                                        <option>Dodoma</option>
-                                    </select>
+                                    <label>Plate Number</label>
+                                    <input class="form-control" type="text" th:value="${bus.getPlateNumber()}" name="PlateNumber" required>
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleFormControlSelect2">Arrival City</label>
-                                    <select class="form-control" id="exampleFormControlSelect2" type="text" name="arrivalCity"  required>
-                                        <option th:text="${flight.getArrivalCity()}" disabled selected hidden>select city</option>
-                                        <option>Dar es Salaam</option>
-                                        <option>Mwanza</option>
-                                        <option>Arusha</option>
-                                        <option>Kilimanjaro</option>
-                                        <option>Tanga</option>
-                                        <option>Dodoma</option>
-                                    </select>
-                                </div>
+
+                                <br>
 
                                 <div>
                                     <label>Type:</label>
-                                    <select class="custom-select" name="Type"  required>
-                                        <option th:text="${flight.getType()}" disabled selected hidden>Select Route Type</option>
-                                        <option value="one way">one way</option>
-                                        <option value="round trip">round trip</option>
+                                    <select class="custom-select" th:value="${bus.getType()}" name="Type" required>
+                                        <option value="" disabled selected hidden>Select Bus Type</option>
+                                        <option value="Luxury">Luxury</option>
+                                        <option value="Semi-Luxury">Semi-Luxury</option>
                                     </select>
                                 </div>
                                 <br>
 
-                                <div>
-                                    <label>Class:</label>
-                                    <select class="custom-select" name="PlaneClass"   required>
-                                        <option th:text="${flight.getPlaneClass()}" disabled selected hidden ></option>
-                                        <option value="Economy">Economy</option>
-                                        <option value="Business">Business</option>
-                                    </select>
-                                </div>
-                                <br>
-                                <div class="form-group">
-                                    <label>Price</label>
-                                    <input class="form-control" th:field="*{price}" th:value="${flight.getPrice()}" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Departure Date</label>
-                                    <input class="form-control" type="text" th:field="*{dateOfDeparture}" th:value="${flight.getDateOfDeparture()}" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Departure Time</label>
-                                    <input class="form-control" type="text" th:field="*{estimatedDepartureTime}" th:value="${flight.getEstimatedDepartureTime()}" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Return Date</label>
-                                    <input class="form-control" type="text" th:field="*{dateOfReturn}" th:value="${flight.getDateOfReturn()}" >
-                                </div>
+
 
 
                                 <button type="submit" class="btn btn-success">Submit</button>
                                 <button type="reset" class="btn btn-default">Reset </button>
-                                <a class="btn btn-danger" th:href="@{/viewFlight}" role="button">Cancel</a>
+                                <a class="btn btn-danger" th:href="@{/viewBus}" role="button">Cancel</a>
 
                             </form>
                         </div>
@@ -212,22 +65,6 @@
 </div>
 <!-- /.col-lg-6 (nested) -->
 
-
-<!-- jQuery -->
-<!--        <script src="../static/js/jquery.min.js"></script>-->
-<script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<!--        <script src="../static/js/bootstrap.min.js"></script>-->
-<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
-
-<!-- Metis Menu Plugin JavaScript -->
-<!--        <script src="../static/js/metisMenu.min.js"></script>-->
-<script type="text/javascript" th:src="@{/js/metisMenu.min.js}"></script>
-
-<!-- Custom Theme JavaScript -->
-<!--        <script src="../static/js/startmin.js"></script>-->
-<script type="text/javascript" th:src="@{/js/startmin.js}"></script>
-
+<div th:replace="layout::js"></div>
 </body>
 </html>
