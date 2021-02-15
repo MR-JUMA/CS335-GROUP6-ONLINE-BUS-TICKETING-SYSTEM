@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<head><title>
+Book Your Bus Ticket With Your Awesome Mohd
+</title>
+<!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/overwrite.css">
+	<link href="css/animate.min.css" rel="stylesheet"> 
+    <link href="css/bootstrap-datetimepicker.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<header id="header">
+        <nav class="navbar navbar-default navbar-static-top mt-20 pt-10 no-margin-bottom" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="images/background.jpg">SOFTWARE ENGINEERING BUS</a>
+                </div>				
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav ">
+                        <li class="active"><a href="#header">Nyumbani</a></li>
+                        <li><a href="#Bustimetable">Ratiba Ya basi</a></li>
+                        <li><a href="#Route">Mahali & Nauli</a></li>
+                        <li><a href="#pricing">Chapa tiketi</a></li>
+                        <li><a href="#our-team">Wasiliana Nasi</a></li> 
+                        <li><a href="#contact">kuhusu Sisi</a></li>                        
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </nav><!--/nav-->		
+    </header><!--/header-->	
+      <p class="text-right pt-5 pb-5 no-margin-bottom">
+                    <span id="exchange" title="Badilisha Miji" class="cursor-pointer">
+                    <i class="fa fa-rotate-90 fa-exchange fa-fw text-muted"></i>
+                        </span>
+                        </p>
+
+                    <form method="GET" action="############" class = "form" accept-charset="UTF-8" id="schedule-form">
+<h4 class="text-center" style="letter-spacing: 2px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 15px;
+    margin-bottom: 20px;"><i class="icon-search4"></i>&nbsp; Nunua Tiketi</h4>
+                    <div class="row pt-10">
+                        <div class="form-group no-line-height leaving-container no-margin-bottom has-feedback">
+                        <label for="from">From:</label>
+                            <select autocomplete="off" id="from" name="from" data-size="5" data-style="btn-bordered"
+                                    class="selectpicker form-control"
+                                    data-live-search="false"
+                                    data-live-search-placeholder="Leaving from.." data-title="Unapotoka ..">
+                                                                    <option value="Mahenge" 
+                                             data-subtext="Morogoro">Mahenge</option>
+                                                                    <option value="Moshi"
+                                             data-subtext="Kilimanjaro">Moshi</option>
+                                                                    <option value="Musoma"
+                                             data-subtext="Musoma">Musoma</option>
+                                                                    <option value="Tukuyu"
+                                             data-subtext="Mbeya">Tukuyu</option>
+                                                                    <option value="Dar es Salaam"
+                                             data-subtext="Dar es Salaam">Dar es Salaam</option>
+                                                                    <option value="Morogoro"
+                                             data-subtext="Morogoro">Morogoro</option>
+                                                                    <option value="Muheza"
+                                             data-subtext="Tanga">Muheza</option>
+                                                                    <option value="Lushoto"
+                                             data-subtext="Tanga">Lushoto</option>
+                                                            </select>
+                            <span class="fa fa-location-arrow form-control-feedback"></span>
+
+                        </div>
+                         <p class="text-right pt-5 pb-5 no-margin-bottom">
+                    <span id="exchange" title="Badilisha Miji" class="cursor-pointer">
+                    <i class="fa fa-rotate-90 fa-exchange fa-fw text-muted"></i>
+                        </span>
+                        </p>
+                        <div class="form-group destination-container has-feedback">
+                        <label for="from">To:</label>
+                            <select autocomplete="off" id="to" data-style="btn-bordered" name="to" data-size="5"
+                                    class="selectpicker form-control"
+                                    data-live-search="false"
+                                    data-live-search-placeholder="Going to .." data-title="Unapokwenda ..">
+                                                                    <option value="Hombolo"
+                                                                                        data-subtext="Dodoma">Hombolo</option>
+                                                                    <option value="Moshi"
+                                                                                        data-subtext="Kilimanjaro">Moshi</option>
+                                                                    <option value="Nyegezi"
+                                                                                        data-subtext="Mwanza">Nyegezi</option>
+                                                                    <option value="Yuva"
+                                                                                        data-subtext="Mbeya">Yuva</option>
+                                                                    <option value="Dar es Salaam"
+                                                                                        data-subtext="Dar es Salaam">Dar es Salaam</option>
+                                                                    <option value="Kigali"
+                                                                                        data-subtext="Rwanda">Kigali</option>
+                                                                    <option value="Bujumbula"
+                                                                                        data-subtext="Burundi">Bujumbula</option>
+                                                                    <option value="Gairo"
+                                                                                        data-subtext="Morogoro">Gairo</option>
+                                                            </select>
+                                                            </div>
+                                                              <p class="text-right pt-5 pb-5 no-margin-bottom">
+                    <span id="exchange" title="Badilisha Miji" class="cursor-pointer">
+                    <i class="fa fa-rotate-90 fa-exchange fa-fw text-muted"></i>
+                        </span>
+                        </p>
+<div class="input-grp">
+<label>Bus type</label>
+<select class="custom-select">
+<option value="1">Luxury</option>
+<option value="2">semi-luxury</option>
+<option value="3">ordinary</option>
+</select>
+
+                                        <p class="text-right pt-5 pb-5 no-margin-bottom">
+                    
+                        </p>
+
+<div class="form-group date-container has-feedback">
+                                                            <input class="form-control btn-bordered" autocomplete="off" placeholder="Tarehe ya kusafiri" data-provide="datepicker" data-date-orientation="bottom" data-date-start-date="2021-02-12" name="date" type="date">
+                                                        <span class="fa fa-calendar form-control-feedback"></span>
+                        </div>
+                        <div class="form-group text-right">
+                                <button class="btn yellow"
+                                        style="font-weight: 600;     text-transform: uppercase;
+font-size: 20px; margin-top: 1px;" href="bus_schedule.html"> kata Tiketi <i
+                                            class="icon-arrow-right13"></i>
+                                </button>
+                            </div>
+            </form>       
+<!--jquery-->
+
+
+<script>
+$(document)
+.on('click', 'form button[type=Endelea]', function(e) {
+    var isValid = $(e.target).parents('form').isValid();
+    if(!isValid) {
+      e.preventDefault(); //prevent the default action
+    }
+});
+</script>
+</body>
+</html>

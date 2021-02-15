@@ -1,0 +1,56 @@
+body {
+
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+    background-size:cover;
+    background-position:center;
+    
+}
+
+
+.Booking-form-box{
+    max-width: 350px;
+    border: 1px solid #ced4da;
+    margin: 10% auto 0;
+}
+.navbar ul{
+    list-style: none;
+    background: #ced4da;
+    padding: right;
+    margin: 0;
+    float: left;
+    padding: 8px;
+    text-align: center;
+    display: block;
+    top: 0px;
+}
+
+.form{
+
+    max-width: 350px;
+    margin: 0px;
+    border-radius: 5px;
+    padding: 20px;
+    display: inline-block;
+    border: 1px solid;
+    box-sizing: border-box;
+    text-align: left;
+    margin-left: 500px;
+    margin-top: 0px;
+}
+
+.navbar li{
+float: right;
+padding: 8px;
+text-align: center;
+display: block;
+top: 0px;
+}
+.navbar a{
+    text-decoration: none;
+    display: block;
+    width: 100px;
+    float: right;
+}
+
+
+
