@@ -45,5 +45,9 @@ public class TripController {
         return "admin";
     }
 
+
+    public int sum(int a,int b){
+        return a+b;
+    }
 //
 }
