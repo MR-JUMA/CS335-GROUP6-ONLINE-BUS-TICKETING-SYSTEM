@@ -10,6 +10,7 @@ import com.example.abc.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -100,6 +101,35 @@ public class CustomerController {
         modelMap.addAttribute("seats",seats);
 
         return "booking";
+    }
+//    @RequestMapping("/provide")
+//    public String inputInfo(@RequestParam("firstName")String firstName,@RequestParam("lastName")String lastName,
+//                            @RequestParam("phone")String phone,@RequestParam("email")String email,HttpServletRequest request){
+//        List<String> details = (List<String>) request.getSession().getAttribute("DETAILS");
+//        if (details == null) {
+//            details = new ArrayList<>();
+//            // if notes object is not present in session, set notes in the request session
+//            request.getSession().setAttribute("DETAILS", details);
+//        }
+//        details.add(firstName);
+//        details.add(lastName);
+//        details.add(phone);
+//        details.add(email);
+//
+//        request.getSession().setAttribute("DETAILS", details);
+//
+//        return "booking";
+//    }
+
+
+
+
+
+    @PostMapping("/invalidate/session")
+    public String destroySession(HttpServletRequest request) {
+        //invalidate the session , this will clear the data from configured database (Mysql/redis/hazelcast)
+        request.getSession().invalidate();
+        return "redirect:/homepage";
     }
 
 
