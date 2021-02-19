@@ -11,7 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -38,6 +43,11 @@ public class CustomerController {
 
         return "seat";
     }
+    @RequestMapping("/book")
+    public String book(){
+
+        return "booking";
+    }
 
 
     @RequestMapping("/search")
@@ -49,6 +59,47 @@ public class CustomerController {
         List<City> place= cityRepository.findAll();
         modelMap.addAttribute("place",place);
         return "displayTrips";
+    }
+
+    @RequestMapping("/session")
+    public String receive(@RequestParam("luke")String price, @RequestParam("settings[]") ArrayList seat
+            , @RequestParam("sett")String amount, HttpServletRequest request){
+        List<String> notes = (List<String>) request.getSession().getAttribute("BUS");
+        ArrayList<Object> seats = (ArrayList<Object>) request.getSession().getAttribute("seat");
+        //check if notes is present in session or not
+        if (notes == null) {
+            notes = new ArrayList<>();
+            // if notes object is not present in session, set notes in the request session
+            request.getSession().setAttribute("BUS", notes);
+        }
+        if (seats == null) {
+            seats = new ArrayList<>();
+            // if notes object is not present in session, set notes in the request session
+            request.getSession().setAttribute("seat", seats);
+        }
+        notes.add(price);
+        notes.add(amount);
+        seats.add(seat);
+
+        request.getSession().setAttribute("seat", seats);
+
+        request.getSession().setAttribute("BUS", notes);
+        System.out.println(notes);
+        System.out.println(seats);
+
+        return "redirect:/provide";
+    }
+
+
+    @RequestMapping("/provide")
+    public String displaySafaris(HttpSession session,ModelMap modelMap){
+        List<String> notes = (List<String>) session.getAttribute("BUS");
+        List<String> seats = (List<String>) session.getAttribute("seat");
+
+        modelMap.addAttribute("notes",notes);
+        modelMap.addAttribute("seats",seats);
+
+        return "booking";
     }
 
 

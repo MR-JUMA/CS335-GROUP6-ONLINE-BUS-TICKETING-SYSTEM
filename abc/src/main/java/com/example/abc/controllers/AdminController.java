@@ -10,6 +10,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -76,10 +78,15 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/addBranch",method= RequestMethod.POST)
-    public String addCity(Branch branch){
+    public String addCity(Branch branch ,HttpSession session){
+        List<String> notes = (List<String>) session.getAttribute("NOTES_SESSION");
+         System.out.println(notes);
+
         branchRepository.save(branch);
         return "redirect:/ab";
     }
+
+
 
     @RequestMapping(value = "/addingUser",method = RequestMethod.GET)
     public String userAdding(ModelMap modelMap){

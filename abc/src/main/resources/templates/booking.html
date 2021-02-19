@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> Kata tiketi ya Basi</title>
+    <meta name="theme-color" content="#dc584e">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <meta property="og:url" content="#######"/>
+    <meta property="og:type" content="website"/>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    <link rel="canonical" href="#">
+    <link rel="stylesheet" href="https://shabiby.co.tz/assets/css/base/bootstrap.min.css">
+    <link rel="stylesheet" href="https://shabiby.co.tz/assets/css/main.css">
+</head>
+
+<body>
+
+<!-- Main Header -->
+<header>
+    <nav class="main-menu " id="stickyHeader">
+        <div class="container">
+            <div class="navbar navbar-default navbar-static-top mt-20 pt-10 no-margin-bottom">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle menu-toggle pl-15 collapsed" style="padding-top: 18px">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+
+                    <a href="######" data-modal onclick="return false;"
+                       class="navbar-toggle pl-15 cursor-pointer " style="color: white;margin-top: 3px;">
+                        <span class="icon-user" style="font-size: 18px"></span>
+                    </a>
+
+
+                    <a class="navbar-brand" href="######">
+
+
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse main-nav">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li ><a
+                                href="#######">Nyumbani</a></li>
+                        <li ><a
+                                href="#######">Ratiba ya Basi</a></li>
+                        <li ><a class="btn-modal"
+                                data-width="350"
+                                data-id="my-booking"
+                                href="#######">Chapa
+                            Tiketi</a></li>
+                        <li ><a
+                                href="########">Wasiliana nasi</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+</header>
+
+<div class="content" id="panel-container">
+
+
+    <br><br>
+    <section class="content" style="margin-bottom: 50px;">
+
+        <div class="container">
+            <div class="row">
+                <div class="error-container"></div>
+                <div class="col-sm-8">
+                    <div id="booking-step">
+                        <form method="POST" action="#######" accept-charset="UTF-8" id="booking-form"><input name="_token" type="hidden" value="Aj3vnrwSyoEqvIze6CrCSDsE8GjJWO49XnkwwCgg">
+                            <div class="panel booking-wizard" style="border: 1px solid #e6e6e6">
+                                <div class="navbar">
+                                    <div class="navbar-inner" style="position: relative">
+                                        <div class="liner"></div>
+                                        <ul class="nav-justified  nav-tabs-justified nav nav-tabs nav-steps">
+
+                                            <li  class="active" ><a href="#customer"
+                                                                    data-toggle="tab">
+                                                  <span class="round-tabs" data-toggle="tooltip"
+                                                        title="<small>Abiria</small>" data-html="true"
+                                                        data-placement="bottom">
+                                                <span class="icon-user icon-2x"></span>
+                                                      </span>
+                                            </a>
+                                            </li>
+                                            <li><a href="#confirm" data-toggle="tab">
+                                                    <span class="round-tabs" data-toggle="tooltip" data-html="true"
+                                                          title="<small>Hakiki Taarifa</small>"
+                                                          data-placement="bottom">
+                         <i class="icon-check icon-2x"></i>
+                     </span>
+
+                                            </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="panel-body no-padding-top">
+                                    <div class="row">
+                                        <div class="tab-content">
+                                            <div class="tab-pane  " id="seat">
+
+
+
+                                            </div>
+                                            <div class="tab-pane   active " id="customer">
+                                                <fieldset>
+                                                    <legend class="no-padding-top text-muted">
+                                                        <small class="text-black">Taarifa za abiria</small>
+                                                        <br>
+                                                        <span style="text-transform: none"><i>Tafadhali jaza seheme zote zenye ulazima hapo chini</i></span>
+                                                    </legend>
+
+                                                    <div class="col-sm-6">
+                                                        <div class="row">
+                                                            <div class="form-group has-feedback">
+                                                                <label class="control-label">
+                                                                    Jina la Kwanza
+                                                                </label>
+                                                                <input class="form-control" placeholder="Jina la kwanza" name="first_name" type="text">
+                                                                <span class="fa fa-user form-control-feedback"></span>
+                                                            </div>
+                                                            <div class="form-group has-feedback">
+                                                                <label class="control-label">
+                                                                    Jina la Mwisho
+                                                                </label>
+                                                                <input class="form-control" placeholder="Jina la mwisho" name="last_name" type="text">
+                                                                <span class="fa fa-user form-control-feedback"></span>
+                                                            </div>
+                                                            <div class="form-group has-feedback">
+                                                                <label class="control-label">
+                                                                    Namba ya Simu
+                                                                </label>
+                                                                <input class="form-control" placeholder="(000) 0000000" name="phone" type="text">
+                                                                <span class="fa fa-phone form-control-feedback"></span>
+                                                            </div>
+                                                            <div class="form-group has-feedback">
+                                                                <label class="control-label">
+                                                                    Barua Pepe
+                                                                </label>
+                                                                <input class="form-control" placeholder="example@domain.com" name="email" type="text">
+                                                                <span class="fa fa-envelope form-control-feedback"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </fieldset>
+                                            </div>
+                                            <div class="tab-pane" id="confirm">
+                                                <fieldset>
+
+                                                    <div class="row">
+                                                    <div class="col-md-12">
+                                                        <h6 style="font-size: 15px"><b>Bei ya tiketi</b> :
+                                                            20,000 /=
+                                                        </h6>
+                                                    </div>
+                                                </fieldset>
+
+                                                <fieldset>
+
+                                                    <div class="row">
+                                                        <hr class="no-margin">
+                                                        <div class="panel-body panel-box voda-container"
+                                                             style="background: #fbfbfb; border-bottom: 1px solid #d0d0d0">
+                                                            <p>
+                                                                Baada ya kubofya button ya ticket,
+                                                                Utatumiwa maombi ya kukamilisha malipo kwa simu yako
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+                                                    <div class="form-group">
+                                                        <div class="checkbox">
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-footer bg-white">
+                                    <ul class="pager wizard">
+                                        <li class="previous first" style="display:none;"><a class="btn  default"
+                                                                                            href="javascript:;">
+                                            <small>Mwanzo <i
+                                                    class="icon-arrow-right13"></i></small>
+                                        </a>
+                                        </li>
+                                        <li class="previous"><a href="javascript:;" class="btn default">
+                                            <small><i class="icon-arrow-left12"></i>Nyuma</small>
+                                        </a>
+                                        </li>
+                                        <li class="last" style="display:none;"><a class="btn red"
+                                                                                  href="javascript:;">Mwisho</a></li>
+                                        <li class="next"><a class="btn  grayish" href="javascript:;">
+                                            <small>Hatua Ifuatayo <i
+                                                    class="icon-arrow-right13"></i></small>
+                                        </a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="panel panel-bordered"
+                         style="border:1px solid #e6e6e6; box-shadow: 0 8px 6px -6px #0000004d">
+                        <div class="panel-heading">
+                            <h4 class="panel-title mt-5 text-size-small text-uppercase text-bold-500">
+                                Taarifa ya Safari
+                            </h4>
+                        </div>
+                        <hr class="no-margin-top mb-10">
+                        <table class="table table-borderless small">
+                            <tr>
+                                <th>
+                                    Safari
+                                </th>
+                                <td >
+                                    Dar es Salaam - Dodoma
+                                </td>
+                            </tr>
+                            <tr>
+                                <th nowrap>
+                                    Tarehe ya Safari
+                                </th>
+                                <td>
+                                    Wednesday, February 17th
+                                </td>
+                            </tr>
+                            <tr>
+                                <th nowrap>
+                                    Muda wa Kuondoka
+                                </th>
+                                <td>
+                                    03:30 PM
+                                </td>
+                            </tr>
+                            <tr th:each="b:${seats[0]}">
+                                <th nowrap>
+                                    Seat selected
+                                </th>
+                                <td th:text="${b}">
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <th nowrap>
+                                    Total Selected Seats
+                                </th>
+                                <td th:text="${notes[1]}">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th nowrap>
+                                    Price per Ticket
+                                </th>
+                                <td th:text="${notes[0]}">
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <th nowrap>
+                                    Total amount
+                                </th>
+                                <td th:text="${notes[0]}*${notes[1]}">
+
+                                </td>
+                            </tr>
+                        </table>
+
+
+
+
+
+                    </div>
+
+                    <nav id="menu"  class="hidden menu">
+
+                        <section class="menu-section no-margin-bottom with-border-bottom">
+                            <ul class="menu-section-list">
+                                <li ><a
+                                        href="#######"><span class="icon-search4"></span>&nbsp;Ratiba ya Mabasi </a></li>
+                                <li ><a class="btn-modal"
+                                        data-width="350"
+                                        data-id="my-booking"
+                                        href="#######"><span class="icon-printer"></span>
+                                    Chapa Tiketi
+                                </a></li>
+
+                                </li>
+                                <li ><a href="######">
+                                    <span class="icon-location4"></span>
+                                    Wasiliana nasi</a></li>
+                            </ul>
+
+                        </section>
+
+                    </nav>
+
+
+
+                    <!-- ./wrapper -->
+
+                    <script src="https://shabiby.co.tz/assets/js/vendor/jquery-2.1.4.min.js"></script>
+                    <script src="https://shabiby.co.tz/assets/js/vendor/bootstrap.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+                    <script src="https://shabiby.co.tz/assets/js/plugins.js"></script>
+                    <script src="https://shabiby.co.tz/assets/js/plugins/jquery.validate.min.js"></script>
+                    <script src="https://shabiby.co.tz/assets/js/plugins/additional-methods.min.js"></script>
+                    <script src="https://shabiby.co.tz/assets/js/plugins/jquery.modal.js"></script>
+                    <script>
+                        $(document).ready(function() {
+
+                            $('a[data-modal]').click(function (event) {
+                                event.preventDefault();
+                                $(this).jsmodal({modalClass: 'jsmodal', showClose: false, clickClose: false});
+                                return false;
+                            });
+                        });
+                    </script>
+                    <script src="https://shabiby.co.tz/assets/js/main.js"></script>
+                    <script>
+                        var firstSeatLabel = 1;
+
+                        var container = 'BS-212319378';
+
+                        $(document).ready(function () {
+
+                            var seats = $('#seat-chart-BS-212319378 #seat-chart');
+
+                            var $cart = $('#seat-chart-BS-212319378 #selected');
+
+                            var sc = $(seats).seatCharts({
+                                map: ['s[3,3]s[4,4]_s[2,2]s[1,1]','s[7,7]s[8,8]_s[6,6]s[5,5]','s[11,11]s[12,12]_s[10,10]s[9,9]','s[15,15]s[16,16]_s[14,14]s[13,13]','s[19,19]s[20,20]_s[18,18]s[17,17]','s[23,23]s[24,24]_s[22,22]s[21,21]','s[27,27]s[28,28]_s[26,26]s[25,25]','s[31,31]s[32,32]_s[30,30]s[29,29]','s[35,35]s[36,36]_s[34,34]s[33,33]','s[39,39]s[40,40]_s[38,38]s[37,37]','s[43,43]s[44,44]_s[42,42]s[41,41]','s[47,47]s[48,48]_s[46,46]s[45,45]','s[51,51]s[52,52]_s[50,50]s[49,49]','s[55,55]s[56,56]s[57,57]s[54,54]s[53,53]',],
+                                naming: {
+                                    top: false,
+                                    left: false,
+                                    getLabel: function (character, row, column) {
+
+                                        return character;
+
+                                    },
+                                    getId: function (character, row, column) {
+
+                                        return row + '_' + character;
+                                    },
+                                },
+                                legend: {
+                                    node: $('#seat-chart-BS-212319378 #legend'),
+                                    items: [
+                                        ['s', 'available', 'Kilichopo'],
+                                        ['s', 'selected', 'Kilichocchaguliwa'],
+                                        ['s', 'unavailable', 'Kisichopatikana']
+                                    ]
+                                },
+
+                                click: function () {
+                                    if (this.status() == 'available') {
+
+                                        sc.find('selected').status('available');
+
+                                        var seat_label = this.settings.label;
+
+                                        $($cart).html(seat_label);
+
+
+                                        $('#seat-chart-BS-212319378').find("input[name=seat]").val(seat_label);
+
+
+                                        return 'selected';
+
+                                    } else if (this.status() == 'selected') {
+
+                                        $('#seat-chart-BS-212319378').find("input[name=seat]").attr('value', null);
+
+                                        $($cart).html('');
+
+                                        //seat has been vacated
+                                        return 'available';
+                                    } else if (this.status() == 'unavailable') {
+
+                                        //seat has been already booked
+
+                                        return 'unavailable';
+
+                                    } else {
+
+                                        return this.style();
+                                    }
+                                }
+                            });
+
+                            sc.status('15', 'selected');
+
+                            sc.status([ '13',  '1',  '2',  '4',  '5',  '6',  '8',  '7',  '3',  '9',  '12',  '11',  '10',  '21',  '22',  '23',  '24',  '25',  '26',  '28',  '27',  '29',  '30',  '32',  '31',  '41',  '42',  '44',  '43',  '45',  '46',  '48',  '47',  '49',  '50',  '52',  '51',  '53',  '54',  '57',  '56',  '55', ], 'unavailable');
+
+                            updateSeatChart(sc, 'https://shabiby.co.tz/api/booking?schedule=BS-212319378','#seat-chart-BS-212319378', 10000);
+                        });
+
+
+                    </script>
+                    <script src="https://shabiby.co.tz/assets/js/plugins/jquery.bootstrap.wizard.min.js"></script>
+
+
+
+                    <!-- Global site tag (gtag.js) - Google Analytics -->
+                    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115552905-1"></script>
+
+
+
+</html>
