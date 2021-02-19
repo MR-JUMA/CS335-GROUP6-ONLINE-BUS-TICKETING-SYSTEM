@@ -12,16 +12,16 @@ If we observe the working of the BUS-TICKETING AND SCHEDULING-SYSTEM, we get to 
 # Prerequisites:
 
 In order to run this sample you will need to ensure you have the following prerequisites installed and configured:
--Java IDE
--Spring Framework
+- Java IDE
+- Spring Framework
 
 # How to install:
 This is a java project,Lets walk through whats there and how to get it running. To get started:.
 
 # Requirements:
--Java jdk 15 
--MySql Server
--IntelliJ
+- Java jdk 15 
+- MySql Server
+- IntelliJ
 
 # Clone repository
 ```
