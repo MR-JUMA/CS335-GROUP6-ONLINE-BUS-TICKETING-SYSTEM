@@ -5,8 +5,20 @@ This is a Bus Ticketing System set up using the Spring Framework. Some of the fe
 
    Install Prerequisite Software:
    
-       Java jdk 15
-       MySql Server
-       IntelliJ
+      
+       
+#HOW TO INSTALL
+_______________
+This is a java project,Lets walk through whats there and how to get it running. To get started:.
+
+Requirements:
+
+-Java jdk 15
+-MySql Server
+-IntelliJ
+
+Clone repository
+
+
 
    
