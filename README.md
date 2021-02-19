@@ -5,8 +5,8 @@ ________________________________________
 
 This is a Bus Ticketing System set up using the Spring Framework. Some of the features include creating an account, searching for trips, logging in, and booking trips. The program uses features of the Spring Framework such as Dependecy Injection and Spring Security. The program also uses Hibernate in order to do operations on the database.
 
-#Prerequisites
-In order to run this sample you will need to ensure you have the following prerequisites installed and configured:
+# Prerequisites:
+## In order to run this sample you will need to ensure you have the following prerequisites installed and configured:
 *Java IDE
 *Spring Framework
 
