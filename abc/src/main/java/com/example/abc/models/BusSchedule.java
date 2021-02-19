@@ -1,6 +1,8 @@
 package com.example.abc.models;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.sql.Date;
 
@@ -11,6 +13,7 @@ public class BusSchedule extends Common{
     private String DepartureCity;
     private String ArrivalCity;
     private String Fare;
+    @JsonFormat(pattern = "yyyy-MM-dd", shape= JsonFormat.Shape.STRING)
     private Date TravelDate;
 
     @OneToOne

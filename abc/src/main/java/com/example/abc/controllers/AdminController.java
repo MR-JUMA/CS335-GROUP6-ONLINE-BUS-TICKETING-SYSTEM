@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -37,7 +38,6 @@ public class AdminController {
     @Autowired
     UserService userService;
 
-
     @RequestMapping(value = "/ab",method = RequestMethod.GET)
     public String homePage(ModelMap modelMap){
         modelMap.addAttribute("count",userRepository.count());
@@ -48,11 +48,20 @@ public class AdminController {
         return "admin";
     }
 
+    @RequestMapping(value = "/addingBus")
+    public String addingBus(){
+        return "addBuses";
+    }
 
     @RequestMapping(value = "/addBus")
     public String saveBus(Bus bus){
         busRepository.save(bus);
         return "redirect:/ab";
+    }
+
+    @RequestMapping(value = "/addingCity")
+    public String addingCity(){
+        return "addCity";
     }
 
     @RequestMapping(value = "/addCity",method= RequestMethod.POST)
@@ -69,10 +78,15 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/addBranch",method= RequestMethod.POST)
-    public String addCity(Branch branch){
+    public String addCity(Branch branch ,HttpSession session){
+        List<String> notes = (List<String>) session.getAttribute("NOTES_SESSION");
+         System.out.println(notes);
+
         branchRepository.save(branch);
         return "redirect:/ab";
     }
+
+
 
     @RequestMapping(value = "/addingUser",method = RequestMethod.GET)
     public String userAdding(ModelMap modelMap){
@@ -103,13 +117,14 @@ public class AdminController {
         return "editBus";
     }
 
-    @RequestMapping("updateBus/{id}")
+    @RequestMapping("/updateBus/{id}")
     public String updateBus(@PathVariable("id")int id,Bus bus,ModelMap modelMap){
         busRepository.save(bus);
         List<Bus> buses=busRepository.findAll();
         modelMap.addAttribute("buses",buses);
         return "viewBus";
     }
+
     @RequestMapping("/deleteBus/{id}")
     public String deleteBus(@PathVariable("id")int id){
         busRepository.deleteById((long) id);
@@ -122,12 +137,14 @@ public class AdminController {
         modelMap.addAttribute("users",users);
         return "viewUser";
     }
+
     @RequestMapping("/editUser/{id}")
     public String editUser(@PathVariable("id")int id, ModelMap modelMap){
         User user=userService.getUserById(id);
         modelMap.addAttribute("user",user);
         return "editUser";
     }
+
     @RequestMapping("updateUser/{id}")
     public String updateUser(@PathVariable("id")int id,User user,ModelMap modelMap){
         userRepository.save(user);
@@ -136,11 +153,11 @@ public class AdminController {
 
         return "viewUser";
     }
+
     @RequestMapping("/deleteUser/{id}")
     public String deleteUser(@PathVariable("id")int id){
         userRepository.deleteById((long) id);
         return "redirect:/viewUser";
     }
-
 
 }

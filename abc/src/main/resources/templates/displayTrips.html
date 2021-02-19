@@ -1,0 +1,603 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> </title>
+    <meta name="theme-color" content="#dc584e">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <meta name="description"/>
+
+
+    <link rel="stylesheet" href="https://shabiby.co.tz/assets/css/base/bootstrap.min.css">
+    <link rel="stylesheet" href="https://shabiby.co.tz/assets/css/main.css">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>     <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <link rel="manifest" href="https://shabiby.co.tz/manifest.json">
+
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-inverse navbar-fixed-top"  role="navigation">
+        <div class="container">
+            <div class="collapse navbar-collapse top-nav">
+                <ul class="nav navbar-nav navbar-right">
+
+
+                    <li>
+                        <a href="#">Help Center</a>
+                    </li>
+                    <li>
+                        <a href="#">Sign In</a>
+                    </li>
+                    <li>
+                        <a href="tel:+255 762 357 820" title="Call us now">
+                            <small class="text-muted"><i
+                                    class="icon-phone2"></i>+255 762 357 820 </small>
+                        </a>
+                    </li>
+                    <li>
+
+                        <a href="#" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">
+                            <small> EN </small> <span class="caret"></span>
+                        </a>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <nav class="main-menu " id="stickyHeader">
+        <div class="container">
+            <div class="navbar navbar-default navbar-static-top mt-20 pt-10 no-margin-bottom">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle pl-15 menu-toggle collapsed" style="padding-top: 18px">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+
+                    <a href="https://shabiby.co.tz/auth/login" data-modal onclick="return false;"
+                       class="navbar-toggle pl-15 cursor-pointer " style="color: white;margin-top: 3px;">
+                        <span class="icon-user" style="font-size: 18px"></span>
+                    </a>
+
+                    <a class="navbar-brand" href="#">
+                        <h4 class="logo-text text-white">
+                            <img style="height: 40px;margin-top: -5px;" src="#">
+                        </h4>
+
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse main-nav">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li ><a
+                                href="#">Home</a></li>
+                        <li  class="active" ><a
+                                href="#">Bus Schedules</a></li>
+                        <li ><a data-modal onclick="return false;"
+                                data-id="my-booking"
+                                href="#">Print
+                            Ticket</a></li>
+                        <li ><a href="#">How to
+                            Pay</a></li>
+                        <li ><a href="#">Contact
+                            Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+</header>
+
+<div class="content" id="panel-container">
+
+    <section class="content">
+        <div class="container">
+            <div class="row" style="min-height: 500px;">
+                <div class="col-sm-3 side-bar">
+                    <div class="row  " id="filter">
+                        <div class="col-md-12">
+                            <fieldset>
+                                <legend >
+                                    <span class="text-muted">SCHEDULE FILTERS </span>
+                                </legend>
+                                <form method="GET" th:action="@{/search}" accept-charset="UTF-8" id="schedule-form">
+
+                                    <div class="form-group  no-line-height  leaving-container  no-margin-bottom has-feedback">
+                                        <select autocomplete="off" id="from" name="from" data-size="5" data-style="btn-bordered"
+                                                class="selectpicker form-control"
+                                                data-live-search="false"
+                                                data-live-search-placeholder="Leaving from.." data-title="Leaving from ..">
+                                            <option th:each="p:${place}" th:value="${p.ID}" th:text="${p.getCityName()}"></option>
+
+
+                                        </select>
+                                        <span class="fa fa-location-arrow form-control-feedback"></span>
+
+                                    </div>
+                                    <p class="text-right pt-5 pb-5 no-margin-bottom">
+                    <span id="exchange" title="Swap Cities" class="cursor-pointer">
+                    <i class="fa fa-rotate-90 fa-exchange fa-fw text-muted"></i>
+                    </span>
+                                    </p>
+                                    <div class="form-group destination-container has-feedback">
+                                        <select autocomplete="off" id="to" data-style="btn-bordered" name="to" data-size="5"
+                                                class="selectpicker form-control"
+                                                data-live-search="false"
+                                                data-live-search-placeholder="Going to .." data-title="Going to ..">
+                                            <option th:each="p:${place}" th:value="${p.ID}" th:text="${p.getCityName()}"></option>
+
+
+                                        </select>
+                                        <span class="fa fa-map-marker form-control-feedback"></span>
+                                    </div>
+
+                                    <div class="form-group date-container has-feedback">
+
+                                        <input class="form-control btn-bordered" autocomplete="off" placeholder="Departure date"
+                                               data-provide="datepicker" data-date-orientation="bottom" data-date-start-date="2021-02-16" name="TravelDate" type="text">
+                                        <span class="fa fa-calendar form-control-feedback"></span>
+                                    </div>
+                                    <div>
+                                        <div class="form-group">
+                                            <button class="btn orange filter-button btn-block  btn-rounded text-regular"
+                                                    style="font-weight: 400; font-size: 12px; margin-top: 1px;">Search
+                                                 &nbsp;<i class="icon-arrow-right13"></i>
+
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </fieldset>
+                        </div>
+
+
+                        <div class="col-md-12">
+                            <fieldset>
+                                <legend>
+                                    <span class="text-muted">BUS TYPE </span>
+                                </legend>
+                                <div class="form-group">
+
+                                    <div class="btn-group btn-group-justified type-toggles">
+                                        <a data-type="semi luxury" href="#"
+                                           class="btn default btn-bordered ">
+                                            <span> Semi Luxury </span>
+                                        </a>
+                                        <a data-type="luxury" href="#"
+                                           class="btn default btn-bordered ">
+                                            <span> Luxury </span>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9 result-block group-result-container">
+                    <legend class="no-border mb-5">
+                        <span class="text-muted text-size-large" style="font-weight: 300">Bus Schedules</span>
+                    </legend>
+
+                    <div class="schedule-items"  id="accordionGroup">
+
+
+                        <div class="col-md-12 mb-15 pt-10 pb-10 schedule-item-card panel" th:each="schedule:${scheduleList}">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-3 col-md-3 mb-10">
+                                    <small class="text-muted hidden-xs" th:text="${schedule.getTravelDate()}">
+
+                                    </small>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <p class="small text-bold-500 no-margin-bottom pt-10" th:text="${schedule.getDepartureCity()}">
+
+                                            </p>
+
+
+                                        </li>
+                                        <li><p>--></p></li>
+
+                                        <li>
+                                            <p class="small text-bold-500 no-margin-bottom pt-10" th:text="${schedule.getArrivalCity()}">
+
+                                            </p>
+                                        </li>
+
+                                    </ul>
+
+
+
+                                </div>
+                                <div class="col-xs-12 col-md-7 col-sm-6">
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                            <small class="text-size-mini text-muted">
+                                                TYPE
+                                            </small>
+                                            <p class="pt-10 small" th:text="${schedule.getBus().getType()}">
+
+
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <small class="text-size-mini text-muted">
+                                                DEPARTURE
+                                            </small>
+                                            <p class="pt-10 small">
+                                                <br>
+
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <small class="text-size-mini text-muted">
+                                                FARE
+                                            </small>
+                                            <p class="pt-10  small" th:text="${schedule.getFare()}">
+
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-xs-12 col-md-2 col-sm-3 pt-20">
+                                        <a class="btn btn-sm btn-block btn-ticket btn-rounded grayish" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                            Book Ticket
+                                        </a>
+                                </div>
+
+                                        <div class="collapse" id="collapseExample">
+                                            <div class="card card-body">
+                                                <div class="jquery-script-center">
+
+                                                    <div class="jquery-script-ads"><script type="text/javascript">
+                                                        google_ad_client = "ca-pub-2783044520727903";
+                                                        /* jQuery_demo */
+                                                        google_ad_slot = "2780937993";
+                                                        google_ad_width = 728;
+                                                        google_ad_height = 90;
+                                                        //-->
+                                                    </script>
+                                                        <script type="text/javascript"
+                                                                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                                                        </script></div>
+                                                    <div class="jquery-script-clear"></div>
+                                                </div>
+                                            </div>
+                                            <div class="wrapper">
+                                                <div class="container">
+                                                    <div class="row">
+                                                    <div id="seat-map" class="col-md-6">
+                                                        <div class="front-indicator">Select seat</div>
+                                                    </div>
+                                                        <form method="post" th:action="@{/session}" >
+                                                            <input type="hidden" name="luke" th:value="${schedule.getFare()}">
+
+                                                    <div class="booking-details col-md-6" >
+                                                        <h2>Booking Details</h2>
+                                                        <h3> Selected Seats (<span id="counter">0</span>):</h3>
+                                                        <div id ="lukelo"></div>
+                                                        <div id="chacha"></div>
+                                                        <ul id="selected-seats" >
+                                                        </ul>
+                                                        Total: <b>$<span id="total">0</span></b>
+                                                        <button class="checkout-button">Checkout &raquo;</button>
+
+                                                        <div id="legend"></div>
+                                                    </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+                                            <script th:src="@{/js/jquery.seat-charts.js}"></script>
+                                            <script>
+                                                var firstSeatLabel = 1;
+     let abc;
+                                                $(document).ready(function() {
+                                                    var $cart = $('#selected-seats'),
+                                                        $counter = $('#counter'),
+                                                        $total = $('#total'),
+                                                        sc = $('#seat-map').seatCharts({
+                                                            map: [
+                                                                'ff_ff',
+                                                                'ff_ff',
+                                                                'ee_ee',
+                                                                'ee_ee',
+                                                                'ee___',
+                                                                'ee_ee',
+                                                                'ee_ee',
+                                                                'ee_ee',
+                                                                'eeeee',
+                                                            ],
+                                                            seats: {
+                                                                f: {
+                                                                    price   : 100,
+                                                                    classes : 'Seat', //your custom CSS class
+                                                                    category: 'seat'
+                                                                },
+                                                                e: {
+                                                                    price   : 40,
+                                                                    classes : 'seat', //your custom CSS class
+                                                                    category: 'seat'
+                                                                }
+
+                                                            },
+                                                            naming : {
+                                                                top : false,
+                                                                getLabel : function (character, row, column) {
+                                                                    return firstSeatLabel++;
+                                                                },
+                                                            },
+                                                            legend : {
+                                                                node : $('#legend'),
+                                                                items : [
+
+                                                                    [ 'e', 'available',   'Available seats'],
+                                                                    [ 'f', 'unavailable', 'Already Booked']
+                                                                ]
+                                                            },
+                                                            click: function () {
+                                                                if (this.status() == 'available') {
+                                                                    //let's create a new <li> which we'll add to the cart items
+                                                                    $('<li>'+this.data().category+' Seat # '+this.settings.label+': <b>$'+this.data().price+'</b> <a href="#" class="cancel-cart-item">[cancel]</a></li>')
+                                                                        .attr('id', 'cart-item-'+this.settings.id)
+                                                                        .data('seatId', this.settings.id)
+                                                                        .appendTo($cart);
+                                                                    let data = "<input type='hidden' value='"+ this.settings.label+"' name='settings[]'>";
+                                                                    $('#lukelo').append(data);
+
+
+                                                                    /*
+                                                                     * Lets update the counter and total
+                                                                     *
+                                                                     * .find function will not find the current seat, because it will change its stauts only after return
+                                                                     * 'selected'. This is why we have to add 1 to the length and the current seat price to the total.
+                                                                     */
+                                                                   abc = sc.find('selected').length+1;
+                                                                   console.log(abc);
+                                                                    $counter.text(sc.find('selected').length+1);
+                                                                    $total.text(recalculateTotal(sc)+this.data().price);
+                                                                    $('#chacha').empty();
+                                                                    let dat = "<input type='hidden' value='"+ abc +"' name='sett'>";
+
+                                                                    $('#chacha').append(dat);
+                                                                    return 'selected';
+
+
+
+                                                                } else if (this.status() == 'selected') {
+                                                                    //update the counter
+                                                                    $counter.text(sc.find('selected').length-1);
+                                                                    //and total
+                                                                    $total.text(recalculateTotal(sc)-this.data().price);
+
+                                                                    //remove the item from our cart
+                                                                    $('#cart-item-'+this.settings.id).remove();
+
+                                                                    //seat has been vacated
+                                                                    return 'available';
+                                                                } else if (this.status() == 'unavailable') {
+                                                                    //seat has been already booked
+                                                                    return 'unavailable';
+                                                                } else {
+                                                                    return this.style();
+                                                                }
+                                                            }
+                                                        });
+
+                                                    //this will handle "[cancel]" link clicks
+                                                    $('#selected-seats').on('click', '.cancel-cart-item', function () {
+                                                        //let's just trigger Click event on the appropriate seat, so we don't have to repeat the logic here
+                                                        sc.get($(this).parents('li:first').data('seatId')).click();
+                                                    });
+
+                                                    //let's pretend some seats have already been booked
+                                                    //	sc.get(['1_2', '4_1', '7_1', '7_2']).status('unavailable');
+
+                                                });
+
+                                                function recalculateTotal(sc) {
+                                                    var total = 0;
+
+                                                    //basically find every selected seat and sum its price
+                                                    sc.find('selected').each(function () {
+                                                        total += this.data().price;
+                                                    });
+
+                                                    return total;
+                                                }
+
+                                            </script><script type="text/javascript">
+
+                                            var _gaq = _gaq || [];
+                                            _gaq.push(['_setAccount', 'UA-36251023-1']);
+                                            _gaq.push(['_setDomainName', 'jqueryscript.net']);
+                                            _gaq.push(['_trackPageview']);
+
+                                            (function() {
+                                                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                                                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                                                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                                            })();
+
+                                        </script>
+                                          </div>
+                                        </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+</section>
+
+</div>
+
+<nav id="menu"  class="hidden menu">
+
+    <section class="menu-section no-margin-bottom with-border-bottom">
+        <ul class="menu-section-list">
+            <li  class="active" ><a
+                    href="#"><span class="icon-search4"></span>&nbsp;Search Schedule</a></li>
+            <li >
+                <a data-modal onclick="return false;"
+                   data-id="my-booking"
+                   href="#"><span class="icon-printer"></span>&nbsp;Print
+                    Ticket</a>
+            </li>
+
+            <li ><a href="#"><span
+                    class="icon-info22"></span>&nbsp;How to
+                Pay</a></li>
+            <li ><a href="#"> <span
+                    class="icon-info3"></span>&nbsp;Help Center (
+                FAQ )</a>
+            </li>
+            <li ><a href="#">
+                <span class="icon-location4"></span>
+                Contact Us</a></li>
+        </ul>
+
+    </section>
+
+
+    <section class="menu-section no-margin-bottom no-margin-top with-border-bottom">
+        <ul class="menu-section-list">
+            <li><a href="#">
+                <small>Privacy Policy</small>
+            </a></li>
+            <li><a href="#">
+                <small>Terms of Service</small>
+            </a></li>
+        </ul>
+    </section>
+    <section class="menu-section no-margin-bottom no-margin-top with-border-bottom">
+        <ul class="menu-section-list">
+            <li>
+                <a href="#">
+                    <span class="icon-user"></span>Agent Sign In
+                </a>
+            </li>
+        </ul>
+    </section>
+
+
+</nav>
+
+
+<script src="https://shabiby.co.tz/assets/js/vendor/jquery-2.1.4.min.js"></script>
+<script src="https://shabiby.co.tz/assets/js/vendor/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+<script src="https://shabiby.co.tz/assets/js/plugins.js"></script>
+<script src="https://shabiby.co.tz/assets/js/plugins/jquery.validate.min.js"></script>
+<script src="https://shabiby.co.tz/assets/js/plugins/additional-methods.min.js"></script>
+<script src="https://shabiby.co.tz/assets/js/plugins/jquery.modal.js"></script>
+<script src="https://shabiby.co.tz/assets/js/main.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $.validator.messages.required = '';
+        var searchForm = $('#schedule-form').validate({
+            ignore: [],
+            rules: {
+                from: {
+                    required: true
+                },
+                to: {
+                    required: true
+                },
+                date: {
+                    required: true,
+                    date: true
+                }
+            },
+            focusInvalid: true,
+            errorPlacement: function (error, element) {
+                error.appendTo(element.parent().closest('.form-group').addClass('has-error no-margin-bottom'));
+            },
+            submitHandler: function (form) {
+                form.submit();
+            },
+            unhighlight: function (element, errorClass) {
+                $(element).parent().closest('.form-group').removeClass('has-error');
+                $(element).parent().closest('.form-group:not(.leaving-container)').removeClass('no-margin-bottom');
+            }
+        });
+    });
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115552905-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-115552905-1');
+</script>
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-115552905-1', 'auto');
+    ga('require', 'GTM-PJXF32H');
+    ga('send', 'pageview');
+
+
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/5cfcf994267b2e5785318514/default';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
+    })();
+
+</script>
+</body>
+</html>
